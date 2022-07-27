@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatisplus.mapper.UserMapper">
+
+    <!--Map<String,Object> selectMapById(Long id);-->
+    <select id="selectMapById" resultType="map">
+        select uid, username, age, email
+        from user
+        where uid = #{id}
+    </select>
+
+    <!--Page<User> selectPageVo(@Param("page") Page<User> page, @Param("age") Integer age);-->
+    <select id="selectPageVo" resultType="User">
+        select uid, username, age, email from user where age > #{age}
+    </select>
+
+</mapper>    
